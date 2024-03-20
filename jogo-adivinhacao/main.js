@@ -34,3 +34,4 @@ btnReset.addEventListener('click', function(){
     tryAgain.classList.add("hide")
     xAttempts = 1
 })
+
