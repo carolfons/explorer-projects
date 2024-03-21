@@ -4,4 +4,6 @@
 <h3>Project #1: Guess it Game</h3>
 <p>Enter the number and see in how many tries you can guess it!</p>
 <h3>Project #2: IMC Calculator</h3>
+<p>Calculate the IMC by entering the weight(kg) and the height(cm). Used <bold>ES6 Modules</bold></p>
+<p>imagem</p>
 <h3>Project #3: Focus Timer</h3>
