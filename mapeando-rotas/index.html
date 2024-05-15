@@ -1,51 +1,21 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>SPA</title>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>SPA</title>
 </head>
 <body>
-    <nav>
-        <a href="/" onclick = "route()">Home</a>
-        <a href="/about" onclick = "route()">Sobre</a>
-        <a href="/contact" onclick = "route()">Contact</a>
-        <a href="/404" onclick = "route()">404</a>
-    </nav>
+  <nav>
+    <a href="/" onclick="route()">Home</a>
+    <a href="/about" onclick="route()">Sobre</a>
+    <a href="/contact" onclick="route()">Contact</a>
+    <a href="/404" onclick="route()">404</a>
+  </nav>
 
-    <div class="app"></div>
+  <div id="app"></div>
 
-    <script>
-        const routes ={
-            "/": "/pages/home.html",
-            "/about": "/pages/about.html",
-            "/contact": "/pages/contact.html",
-            404: "/pages/404.html"
-        }
-
-        function route(event){
-            event = event || window.event
-            event.preventDefault()
-
-            window.history.pushState({},"", event.target.href)
-            handle()
-        }
-
-        function handle(){
-            const {pathname} = window.location
-            const route = routes[pathname]||routes[404]
-
-            //"promise que buscarei essa rota e quando concluir te mostrarei"
-            fetch(route)
-            .then((data)=>{
-                data.text()
-            })
-            .then(html => {
-                console.log(html) // busca o html da página
-            })
-            console.log(pathname)
-        }
-    </script>
-    
+  <script src="js/index.js" type="module"></script>
 </body>
 </html>
