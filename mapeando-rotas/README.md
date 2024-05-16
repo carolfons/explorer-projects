@@ -1,4 +1,15 @@
-Para executar o projeto do aplicativo em seu ambiente local, siga os passos abaixo:
+## Projeto de Estudo sobre SPAs em Javascript
+
+### Temas abordados:
+- Conceitos de SPA;
+- Mapeamento de rotas;
+- Assíncrono e promises;
+- Orientação a objetos;
+- Classes e muito mais.
+
+
+
+### Para executar o projeto do aplicativo em seu ambiente local, siga os passos abaixo:
 
 1. Clone o repositório:
    ```
