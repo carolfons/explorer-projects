@@ -1,3 +1,21 @@
+export class GithubUser {
+    static search(username) {
+        //busca na api
+        const endpoint = `https://api.github.com/users/${username}`
+        return fetch(endpoint)
+            .then(data => data.json()) //transforma em json
+            .then(
+                ({ login, name, public_repos, followers }) => { //retorna apenas os dados que vai precisar
+                    {
+                        login,
+                        name,
+                        public_repos,
+                        followers
+                    }
+                })
+    }
+}
+
 export class Favorites {
     constructor(root) {
         this.root = document.querySelector(root)
@@ -8,16 +26,21 @@ export class Favorites {
     load() {
 
         //dados dos usuários do github salvos em um array
-        this.entries = JSON.parse(localStorage.getItem('@github-favorites:')) || []
-
+        this.entries = JSON.parse
+            (localStorage.getItem('@github-favorites:')) || []
 
     }
 
-    delete(user){
+    add(username){
+        console.log(username)
+
+    }
+
+    delete(user) {
         // se o usuario selecionado for == ao user.login 
         //então o retorno é false 
         const filteredEntries = this.entries
-        .filter((entry)=>entry.login != user.login)
+            .filter((entry) => entry.login != user.login)
 
         //colocando um novo array e atualizado sem o usuário que foi deletado
         //reatribuição de um novo array - principio da imutabilidade
@@ -33,6 +56,16 @@ export class FavoritesView extends Favorites {
         //selecionando a tabela
         this.tbody = this.root.querySelector('table tbody')
         this.update();
+        this.onAdd();
+    }
+
+    onAdd(){
+        const addButton = this.querySelector('.search button')
+        addButton.onclick = ()=>{
+            const {value} = this.root.querySelector('.search input');
+            this.add(value)
+
+        }
     }
 
 
@@ -53,10 +86,10 @@ export class FavoritesView extends Favorites {
 
 
             row.querySelector('.remove').onclick = () => {
-               const isOk = confirm('R U Sure?')
-               if(isOk){
-                this.delete(user)
-               }
+                const isOk = confirm('R U Sure?')
+                if (isOk) {
+                    this.delete(user)
+                }
             }
             this.tbody.append(row)
         });
