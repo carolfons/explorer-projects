@@ -109,11 +109,11 @@ table th:last-child{
 
 /* pega todos os filhos que forem ímpares */
 table tr:nth-child(odd){
-    background-color: #f0eecf;
+    background-color: #eee;
 }
 
 table tr{
-    background-color: #e7e5d4;
+    background-color: #ddd;
 }
 
 table td{
