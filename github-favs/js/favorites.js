@@ -6,14 +6,23 @@ export class Favorites {
 
     //carregamento dos dados
     load() {
-        //dados
-        this.entries = [{
-            login: "carolfons",
-            name: "Caroline Fonseca",
-            public_repos: "37",
-            followers: "120",
-        }
-        ]
+
+        //dados dos usuários do github salvos em um array
+        this.entries = JSON.parse(localStorage.getItem('@github-favorites:')) || []
+
+
+    }
+
+    delete(user){
+        // se o usuario selecionado for == ao user.login 
+        //então o retorno é false 
+        const filteredEntries = this.entries
+        .filter((entry)=>entry.login != user.login)
+
+        //colocando um novo array e atualizado sem o usuário que foi deletado
+        //reatribuição de um novo array - principio da imutabilidade
+        this.entries = filteredEntries;
+        this.update()
     }
 
 }
@@ -41,6 +50,14 @@ export class FavoritesView extends Favorites {
             row.querySelector('.user span').textContent = user.login;
             row.querySelector('.repositories').textContent = user.public_repos;
             row.querySelector('.followers').textContent = user.followers;
+
+
+            row.querySelector('.remove').onclick = () => {
+               const isOk = confirm('R U Sure?')
+               if(isOk){
+                this.delete(user)
+               }
+            }
             this.tbody.append(row)
         });
 

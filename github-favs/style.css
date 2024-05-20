@@ -155,4 +155,8 @@ td .remove{
     background-color: red;
     height: 1.3rem;
     width: 1.3rem;
+    transform: background 3s;
+}
+td .remove:hover{
+    background-color: rgb(245, 148, 148);
 }
