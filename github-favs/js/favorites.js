@@ -4,18 +4,18 @@ export class GithubUser {
         const endpoint = `https://api.github.com/users/${username}`
         return fetch(endpoint)
             .then(data => data.json()) //transforma em json
-            .then(
-                ({ login, name, public_repos, followers }) => { //retorna apenas os dados que vai precisar
-                    {
+            .then(({ login, name, public_repos, followers }) => ({ //retorna apenas os dados que vai precisar
+                    
                         login,
                         name,
                         public_repos,
                         followers
-                    }
-                })
+                    
+                }))
     }
 }
-
+// classe que vai conter a lógica dos dados
+// como os dados serão estruturados
 export class Favorites {
     constructor(root) {
         this.root = document.querySelector(root)
@@ -26,13 +26,15 @@ export class Favorites {
     load() {
 
         //dados dos usuários do github salvos em um array
-        this.entries = JSON.parse
-            (localStorage.getItem('@github-favorites:')) || []
+        this.entries = JSON.parse(localStorage
+            .getItem('@github-favorites:')) || []
 
     }
-
-    add(username){
-        console.log(username)
+// código assíncrono
+//essa função sendo assíncrona virou uma promise
+    async add(username){
+        const user = await GithubUser.search(username)
+        console.log(user)
 
     }
 
@@ -40,7 +42,7 @@ export class Favorites {
         // se o usuario selecionado for == ao user.login 
         //então o retorno é false 
         const filteredEntries = this.entries
-            .filter((entry) => entry.login != user.login)
+            .filter(entry => entry.login != user.login)
 
         //colocando um novo array e atualizado sem o usuário que foi deletado
         //reatribuição de um novo array - principio da imutabilidade
@@ -50,6 +52,7 @@ export class Favorites {
 
 }
 
+// classe que vai criar a visualização e eventos do HTML
 export class FavoritesView extends Favorites {
     constructor(root) {
         super(root)
@@ -60,7 +63,7 @@ export class FavoritesView extends Favorites {
     }
 
     onAdd(){
-        const addButton = this.querySelector('.search button')
+        const addButton = this.root.querySelector('.search button')
         addButton.onclick = ()=>{
             const {value} = this.root.querySelector('.search input');
             this.add(value)
