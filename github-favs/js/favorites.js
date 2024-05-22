@@ -30,12 +30,29 @@ export class Favorites {
             .getItem('@github-favorites:')) || []
 
     }
+
+    //função para salvar dados no local Storage
+    save(){
+        localStorage.setItem('@github-favorites:', JSON.stringify(this.entries)) // transforma um array de objetos em string e salva na local storage
+    }
 // código assíncrono
 //essa função sendo assíncrona virou uma promise
     async add(username){
-        const user = await GithubUser.search(username)
-        console.log(user)
+        try{const user = await GithubUser.search(username)
+            if(user.login === undefined){
+                throw new Error('Usuário não encontrado');
+            }
 
+            //this.entries.push(user); =>  quebra a imutabilidade
+
+            this.entries = [user, ...this.entries];
+            this.update()
+            this.save()
+
+        }catch(error){
+            alert(error.message)
+               
+        }
     }
 
     delete(user) {
@@ -48,6 +65,7 @@ export class Favorites {
         //reatribuição de um novo array - principio da imutabilidade
         this.entries = filteredEntries;
         this.update()
+        this.save()
     }
 
 }
