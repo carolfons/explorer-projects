@@ -1,19 +1,4 @@
-export class GithubUser {
-    static search(username) {
-        //busca na api
-        const endpoint = `https://api.github.com/users/${username}`
-        return fetch(endpoint)
-            .then(data => data.json()) //transforma em json
-            .then(({ login, name, public_repos, followers }) => ({ //retorna apenas os dados que vai precisar
-                    
-                        login,
-                        name,
-                        public_repos,
-                        followers
-                    
-                }))
-    }
-}
+import { GithubUser } from "./GithubUser.js";
 // classe que vai conter a lógica dos dados
 // como os dados serão estruturados
 export class Favorites {
@@ -38,9 +23,18 @@ export class Favorites {
 // código assíncrono
 //essa função sendo assíncrona virou uma promise
     async add(username){
-        try{const user = await GithubUser.search(username)
+        try{
+            //verificar antes de ir pro github se o usuário ja existe na lista
+            const userExists = this.entries.find(entry => entry.login === username)
+            console.log(userExists)
+            if(userExists){
+                throw new Error('User already added!')
+            }
+            //consultando no github o usuário digitado
+            const user = await GithubUser.search(username)
+
             if(user.login === undefined){
-                throw new Error('Usuário não encontrado');
+                throw new Error('User not found!');
             }
 
             //this.entries.push(user); =>  quebra a imutabilidade
@@ -100,6 +94,7 @@ export class FavoritesView extends Favorites {
             //colocando as informações do usuário
             row.querySelector('.user img').src = `https://github.com/${user.login}.png`
             row.querySelector('.user img').alt = `Image of ${user.name}`;
+            row.querySelector('.user a').href = `https://github.com/${user.login}`;
             row.querySelector('.user p').textContent = user.name;
             row.querySelector('.user span').textContent = user.login;
             row.querySelector('.repositories').textContent = user.public_repos;
