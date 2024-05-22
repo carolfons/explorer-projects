@@ -15,4 +15,15 @@
 <h3> 👉 Project #3: Maping Routes</h3>
 <p>Learning about SPAs, how to work with routes, async and promises. The project has a local server and you can see the specifications inside the readme file inside the project folder</p>
 <h3> 👉 Project #4: Github Favorites</h3>
-<p>Currently Stu(dying) ☕📚💻</p>
+<p>Project developed to learn more about javascript. In this application you can search a user from github and then display it on a table with the proper data from the github account.</p>
+<p>Technologies studied for this project:</p>
+
+|                |                |                          |               |
+| :------------: |:--------------:| :-----------------------:|:-------------:|
+| Promises       | Async Await    | Immutability in Js       |    OOP        |
+| Static Classes | HTML Tables    | Fetching data from a API | Local Storage |
+
+<p> 📃 You can see the certificate from Level 07 <a href="https://app.rocketseat.com.br/certificates/0bc851f7-f183-4f22-a2f7-a4dbece4e8d1">here</a></p>
+
+
+
