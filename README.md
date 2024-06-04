@@ -5,9 +5,12 @@
 <h3> 👉 Project #1: Guess it Game</h3>
 <p>Enter the number and see in how many tries you can guess it!</p>
 
+🔗 Guess it Game <a href = "https://carolfons.github.io/explorer-projects/jogo-adivinhacao/" >preview</a>
+
 <h3> 👉 Project #2: IMC Calculator</h3>
 <p>Calculate the IMC by entering the weight(kg) and the height(cm). Used <bold>ES6 Modules</bold></p>
 
+🔗 IMC Calculator <a href = "https://carolfons.github.io/explorer-projects/calculo-imc/" >preview </a>
 
 ---
 
@@ -23,7 +26,7 @@
 | Promises       | Async Await    | Immutability in Js       |    OOP        |
 | Static Classes | HTML Tables    | Fetching data from a API | Local Storage |
 
-Github Favorites <a href = "https://carolfons.github.io/explorer-projects/github-favs/">Deploy 🔗</a>
+🔗 Github Favorites <a href = "https://carolfons.github.io/explorer-projects/github-favs/">preview </a>
 
 <p> 📃 You can see the certificate from Level 07 <a href="https://app.rocketseat.com.br/certificates/0bc851f7-f183-4f22-a2f7-a4dbece4e8d1">here</a></p>
 
