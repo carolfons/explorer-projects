@@ -23,7 +23,9 @@
 | Promises       | Async Await    | Immutability in Js       |    OOP        |
 | Static Classes | HTML Tables    | Fetching data from a API | Local Storage |
 
+Github Favorites <a href = "https://carolfons.github.io/explorer-projects/github-favs/">Deploy 🔗</a>
+
 <p> 📃 You can see the certificate from Level 07 <a href="https://app.rocketseat.com.br/certificates/0bc851f7-f183-4f22-a2f7-a4dbece4e8d1">here</a></p>
 
-
+---
 
