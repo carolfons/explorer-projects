@@ -1,5 +1,7 @@
-<h1 align ="center">Javascript Projects <img height="32" src="https://seeklogo.com/images/J/javascript-logo-E967E87D74-seeklogo.com.png" alt="Javascript"/> </h1>
-<p align="center">Explorer Stack from <a href = "rocketseat.com.br">RocketSeat</a> 🚀</p>
+<img width=100% src="https://capsule-render.vercel.app/api?type=waving&height=150&color=gradient&text=Javascript%20Projects%20&textBg=false&fontColor=000044&fontSize=50&fontAlign=50"/>
+
+
+<h3 align="center">Explorer Stack from <a href = "rocketseat.com.br">RocketSeat</a> 🚀</h3>
 
 <h2> 🔷 Level 06 - Advancing in JavaScript</h2>
 <h3> 👉 Project #1: Guess it Game</h3>
